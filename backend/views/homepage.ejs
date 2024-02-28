@@ -12,11 +12,12 @@
   </head>
   <body>
     <h1>Hello from EJS</h1>
-    <div>
+    <div style="background-color: grey; border: solid 4px black">
       <% data.map((element)=>{ %>
       <p>
-        Tiny URL is : <b> <%=element.tinyurl %> </b>, Redirect URL is
-        <b><%= element.redirecturl%> </b> and the number of clicks are
+        Tiny URL is : <b>http://localhost:4000/url/<%=element.tinyurl %> </b>,
+        Redirect URL is <b><%= element.redirecturl%> </b> and the number of
+        clicks are
         <b><%= element.timestamp.length %> </b>
       </p>
       <% }) %>

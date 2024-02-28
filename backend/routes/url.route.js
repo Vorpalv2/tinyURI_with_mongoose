@@ -7,11 +7,6 @@ import { url } from "../model/url.model.js";
 
 const urlroute = Router();
 
-urlroute.get(`/`, async (req, res) => {
-  let links = await url.find({});
-  res.render("homepage", { data: links });
-});
-
 urlroute.post(`/`, shortGenerator);
 
 urlroute.get(`/analytics/:shortID`, getAnalytics);
