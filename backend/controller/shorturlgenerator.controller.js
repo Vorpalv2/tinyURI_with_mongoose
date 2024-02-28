@@ -10,7 +10,6 @@ async function shortGenerator(req, res) {
     timestamp: [],
   });
 
-  console.log(createdData);
   res.send(createdData);
 }
 
