@@ -5,6 +5,8 @@ import { urlroute } from "./routes/url.route.js";
 
 const app = express();
 
+app.set("view engine", "ejs");
+
 app.use(express.urlencoded({ extended: true }));
 app.use("/url", urlroute);
 
