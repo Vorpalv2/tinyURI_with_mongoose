@@ -14,4 +14,15 @@ async function shortGenerator(req, res) {
   res.send(createdData);
 }
 
-export { shortGenerator };
+async function getAnalytics(req, res) {
+  const shortID = req.params.shortID;
+
+  const Result = await url.findOne({ tinyurl: shortID });
+
+  res.json({
+    "Number of times clicked :": Result?.timestamp.length,
+    "visited time :": Result.timestamp,
+  });
+}
+
+export { shortGenerator, getAnalytics };

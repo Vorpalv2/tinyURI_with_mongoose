@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { shortGenerator } from "../controller/shorturlgenerator.controller.js";
+import {
+  shortGenerator,
+  getAnalytics,
+} from "../controller/shorturlgenerator.controller.js";
 import { url } from "../model/url.model.js";
 
 const urlroute = Router();
@@ -10,6 +13,8 @@ urlroute.get(`/`, (req, res) => {
 
 urlroute.post(`/`, shortGenerator);
 
+urlroute.get(`/analytics/:shortID`, getAnalytics);
+
 urlroute.get(`/:shortid`, async (req, res) => {
   let shortid = req.params.shortid;
   console.log(shortid);
@@ -17,11 +22,10 @@ urlroute.get(`/:shortid`, async (req, res) => {
     { tinyurl: shortid },
     {
       $push: {
-        visitHistory: { timestamp: Date.now() },
+        timestamp: { time: Date.now() },
       },
     }
   );
-  console.log(foundData);
 
   res.redirect(foundData?.redirecturl);
 });
