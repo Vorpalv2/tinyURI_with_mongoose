@@ -3,6 +3,7 @@ import { url } from "../model/url.model.js";
 
 async function shortGenerator(req, res) {
   let body = req.body.url;
+  if (!body) return res.json({ "Error ": "Body cannot be empty" });
 
   let createdData = await url.create({
     tinyurl: nanoid(4),

@@ -13,7 +13,6 @@ urlroute.get(`/analytics/:shortID`, getAnalytics);
 
 urlroute.get(`/:shortid`, async (req, res) => {
   let shortid = req.params.shortid;
-  console.log(shortid);
   let foundData = await url.findOneAndUpdate(
     { tinyurl: shortid },
     {
