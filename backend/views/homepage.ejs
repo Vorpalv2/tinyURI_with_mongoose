@@ -16,6 +16,10 @@
         background-color: black;
         color: whitesmoke;
       }
+
+      .table {
+        padding-top: 20px;
+      }
     </style>
   </head>
   <body>
@@ -25,5 +29,22 @@
       <input type="text" name="url" />
       <button>Generate</button>
     </form>
+
+    <div class="table">
+      <table>
+        <tr>
+          <th>TinyURL</th>
+          <th>RedirectURL</th>
+          <th>No. of Clicks</th>
+        </tr>
+        <% data.map((element)=>{ %>
+        <tr>
+          <td><%=element.tinyurl %></td>
+          <td><%= element.redirecturl %></td>
+          <td><%= element.timestamp.length %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
   </body>
 </html>
