@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { url } from "../model/url.model.js";
-import { user } from "../model/user.model.js";
 import {
   handleLogin,
   handleSignup,
