@@ -1,6 +1,10 @@
 import { Router } from "express";
 import { url } from "../model/url.model.js";
 import { user } from "../model/user.model.js";
+import {
+  handleLogin,
+  handleSignup,
+} from "../controller/handleruser.controller.js";
 
 const staticRouter = Router();
 
@@ -14,14 +18,12 @@ staticRouter.get(`/register`, (req, res) => {
   res.render("register");
 });
 
-staticRouter.post(`/register`, async (req, res) => {
-  const { username, password, email } = req.body;
-  const createdUser = await user.create({
-    username,
-    password,
-    email,
-  });
-  res.status(200).send(createdUser);
+staticRouter.get(`/login`, (req, res) => {
+  res.render("login");
 });
+
+staticRouter.post(`/register`, handleSignup);
+
+staticRouter.post(`/login`, handleLogin);
 
 export { staticRouter };
