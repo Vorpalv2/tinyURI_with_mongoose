@@ -10,15 +10,56 @@
     />
     <title>Homepage</title>
     <style>
-      * {
+      body {
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
         background-color: black;
         color: whitesmoke;
+        padding: 20px;
       }
 
-      .table {
-        padding-top: 20px;
+      form {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        color: whitesmoke;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #222;
       }
     </style>
   </head>

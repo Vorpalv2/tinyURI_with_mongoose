@@ -20,6 +20,7 @@ async function handleLogin(req, res) {
 
   if (!foundUser) return res.redirect(`/login`);
   console.log(`Welcome User :  ${foundUser.username}`);
+  res.redirect("/");
 }
 
 export { handleSignup, handleLogin };
