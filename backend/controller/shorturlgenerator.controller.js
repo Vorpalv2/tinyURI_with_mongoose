@@ -4,7 +4,7 @@ import { url } from "../model/url.model.js";
 async function shortGenerator(req, res) {
   let body = req.body.url;
   if (!body) return res.json({ "Error ": "Body cannot be empty" });
-  if (!body.endsWith(".com") || body.endsWith(".in"))
+  if (!body.endsWith(".com") || !body.endsWith(".in"))
     return res.json({ Error: "Only .com or .in URLs Allowed" });
 
   let createdData = await url.create({
