@@ -7,13 +7,13 @@ async function shortGenerator(req, res) {
   if (!body.endsWith(".com") && !body.endsWith(".in"))
     return res.json({ Error: "Only .com or .in URLs Allowed" });
 
-  let createdData = await url.create({
+  await url.create({
     tinyurl: nanoid(4),
     redirecturl: body,
     timestamp: [],
   });
 
-  res.send(createdData);
+  res.redirect("/");
 }
 
 async function getAnalytics(req, res) {
