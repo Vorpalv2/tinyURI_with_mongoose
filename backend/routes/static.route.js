@@ -8,7 +8,8 @@ import {
 const staticRouter = Router();
 
 staticRouter.get(`/`, async (req, res) => {
-  const result = await url.find({});
+  if (!req.user) return res.redirect(`/`);
+  const result = await url.find({ generatedBy: req.user._id });
 
   res.render("homepage", { data: result });
 });

@@ -4,7 +4,7 @@ import { connectToDB } from "./database.js";
 import { urlroute } from "./routes/url.route.js";
 import { staticRouter } from "./routes/static.route.js";
 import cookieParser from "cookie-parser";
-import { restrictToLoggedInUserOnly } from "./middleware/auth.js";
+import { restrictToLoggedInUserOnly, checkAuth } from "./middleware/auth.js";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use("/url", restrictToLoggedInUserOnly, urlroute);
-app.use("/", staticRouter);
+app.use("/", checkAuth, staticRouter);
 
 app.listen(process.env.PORT, () => {
   console.log("server is running on PORT ", process.env.PORT);
