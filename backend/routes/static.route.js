@@ -10,7 +10,7 @@ const staticRouter = Router();
 staticRouter.get(`/`, async (req, res) => {
   console.log("userID is", req.user?._id);
   if (!req.user) return res.render(`login`, { error: "Not Logged In" });
-  const result = await url.find({ _id: req.user?._id });
+  const result = await url.find({});
 
   res.render("homepage", { data: result });
 });

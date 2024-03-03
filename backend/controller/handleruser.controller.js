@@ -1,5 +1,6 @@
 import { user } from "../model/user.model.js";
 import { setUser } from "../utils/auth.js";
+// import { setUser } from "../utils/slAuth.js";
 
 async function handleSignup(req, res) {
   const { username, password, email } = req.body;
@@ -23,7 +24,7 @@ async function handleLogin(req, res) {
 
   let sessionID = crypto.randomUUID();
   setUser(sessionID, foundUser);
-  // console.log(sessionID);
+  console.log(sessionID);
   res.cookie("uid", sessionID);
 
   console.log(`Welcome User :  ${foundUser.username}`);
